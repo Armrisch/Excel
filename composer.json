@@ -1,0 +1,35 @@
+{
+    "name": "armrisch/excel",
+    "description": "Excel to mysql query",
+    "type": "library",
+    "require": {
+        "php" : "7.1",
+        "phpoffice/phpspreadsheet": "1.17.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arman H",
+            "email": "armrisch14@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Excel\\" : "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Excel\\ExcelServiceProvider"
+            ],
+            "aliases": {
+                "Excel": "Excel\\Facade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "orchestra/testbench": "6.x-dev"
+    }
+}
