@@ -106,4 +106,21 @@ class Excel extends Structure
         return $query;
     }
 
+
+    public function parseExcelForEloquent($rowIterator) : array
+    {
+        $arr = self::parseExcelToArray($rowIterator);
+        $new_array = [];
+        $i = 0;
+        foreach ($arr as $item){
+            foreach ($item as $key => $value){
+                if ($value[1] === 'integer' && empty($cell[0])) $cell[0] = 0;
+                elseif(empty($value[0])) $value[0] = 'no data';
+                $new_array[$i][$key] = $value[0];
+            }
+            $i++;
+        }
+        return $new_array;
+    }
+
 }
